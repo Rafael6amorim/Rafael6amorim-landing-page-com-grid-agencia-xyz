@@ -1,0 +1,264 @@
+html {
+    font-size: 62.5%;
+}
+
+body {
+    display: grid;
+    grid-template-areas: " header header header header"
+        "hero hero hero hero"
+        "about about about about"
+        "services services services services "
+        "projects projects projects projects"
+        "rodape rodape rodape rodape";
+    grid-template-columns: repeat(4, 1fr);
+    font-size: 1.6rem;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+}
+
+/* Cabecalho */
+
+.header {
+    grid-area: header;
+    background-color: white;
+}
+
+.header .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    min-height: 75px;
+}
+
+.header .header-container h1 {
+    font-weight: 700;
+    font-size: 3rem;
+    transition: 0.5s ease-in-out;
+}
+
+.header .header-container a:hover h1 {
+    color: coral;
+}
+
+/* Hero */
+
+.hero {
+    grid-area: hero;
+    height: 89vh;
+    background: url(../imagens/lemons.jpg) center center no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.hero h2 {
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 4rem;
+}
+
+.hero::after {
+    content: url(../imagens/seta_preta.png);
+    position: absolute;
+    height: 35px;
+    bottom: 30px;
+    animation: dowarrow 0.6s infinite alternate ease-in-out;
+}
+
+@-webkit-keyframes dowarrow{
+    0%{
+        -webkit-transform: translateY(0);
+        opacity: 0.4;
+    }
+    100%{
+        -webkit-transform: translateY(0.4em);
+        opacity: 0.9;
+    }
+}
+
+@media(max-width:425px){
+    .hero{
+        height: 60vh;
+    }
+
+    .hero h2{
+        font-size: 2.5rem;
+    }
+}
+
+/* About*/
+
+.about {
+    grid-area: about;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: #fff;
+    max-width: var(--max-width-size);
+}
+.about .item{
+    padding: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+.about .item h3{
+    font-weight: 700;
+    font-size: 4rem;
+}
+
+.about .item p{
+    font-size: 1.8rem;
+    margin: 30px 0;
+    font-weight: 400;
+}
+
+.about .item .btn-know-more{
+    font-size: 1.6rem;
+    align-self: flex-start;
+    font-weight: 400;
+}
+.about .item .btn-know-more:hover{
+    font-weight: 700;
+}
+
+.about .img{
+    height: 100%;
+    width: 100%;
+}
+.about .img.right{
+    background: url(../imagens/bridge.jpg) center center no-repeat;
+    background-size: cover;
+}
+.about .img.left{
+    background: url(../imagens/sky.jpg) center center no-repeat;
+    background-size: cover;
+}
+
+@media(max-width:425px){
+    .about .item{
+        text-align: center;
+    }
+
+    .about{
+        grid-template-columns: 1fr;
+        grid-template-rows:repeat(4,1fr) ;
+    }
+}
+
+/* services */
+
+.services {
+    grid-area: services;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.services .service{
+    padding:70px 20px ;
+    text-align: center;
+}
+
+.services .service img{
+    width: 250px;
+    margin-bottom: 30px;
+}
+.services .service h3{
+    font-size: 1.8;
+    font-weight: 700;
+}
+.services .service p{
+    font-size: 2rem;
+    font-weight: 400;
+    max-width: 400px;
+    margin: 20px auto 0;
+    line-height: 25px;
+}
+.services .service:nth-child(1){
+    background-color: lightskyblue;
+}
+.services .service:nth-child(2){
+    background-color: lightpink;
+}
+@media(max-width:425px){
+    .services{
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* Projects */
+
+.projects {
+    grid-area: projects;
+    display: grid;
+    grid-template-columns:repeat(4,1fr);
+}
+.projects img{
+    height: 100%;
+    transition: 0.3s;
+}
+.projects a:hover{
+    opacity: 0.5;
+}
+@media(max-width:768px){
+    .projects{
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+}
+@media(max-width:425px){
+    .projects{
+        grid-template-columns:1fr;
+        grid-template-rows: repeat(4, 1fr);
+    }
+}
+/* Rodape */
+
+.rodape {
+    grid-area: rodape;
+    background-color: lightgreen;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 100px 0 ;
+}
+
+.rodape h4{
+    font-weight: 700;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.rodape nav{
+    margin: 50px 0;
+}
+.rodape nav ul{
+    display: flex;
+    justify-content: center;
+    max-width:320px;
+    margin: 0 auto;
+}
+.rodape nav ul li a{
+    font-weight: 500;
+    font-size: 2rem;
+    margin: 20px;
+    transition: 0.5s;
+}
+.rodape nav ul li a:hover{
+    color: #fff;
+    font-weight: 700;
+}
+
+.rodape .social i{
+    font-size: 2rem;
+    transition: 0.5s;
+}
+.rodape .social a{
+    margin: 20px;
+}
+.rodape .social a:hover{
+    color: #fff;
+}
